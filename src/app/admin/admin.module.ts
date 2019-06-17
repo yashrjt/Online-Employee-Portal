@@ -4,9 +4,13 @@ import { ViewLeaveReportComponent } from './view-leave-report/view-leave-report.
 import { AddLeaveComponent } from './add-leave/add-leave.component';
 import { ViewTimesheetReportComponent } from './view-timesheet-report/view-timesheet-report.component';
 import { AddTimesheetComponent } from './add-timesheet/add-timesheet.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { ViewEmpReportComponent } from './view-emp-report/view-emp-report.component';
+import { AddSalaryComponent } from './add-salary/add-salary.component';
+import { ViewSalaryReportComponent } from './view-salary-report/view-salary-report.component';
 
 @NgModule({
-  declarations: [ViewLeaveReportComponent, AddLeaveComponent, ViewTimesheetReportComponent, AddTimesheetComponent],
+  declarations: [ViewLeaveReportComponent, AddLeaveComponent, ViewTimesheetReportComponent, AddTimesheetComponent, AddEmployeeComponent, ViewEmpReportComponent, AddSalaryComponent, ViewSalaryReportComponent],
   imports: [
     CommonModule
   ]
