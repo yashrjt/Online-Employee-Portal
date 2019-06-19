@@ -23,17 +23,16 @@
       </ul> -->
     </li>
      
-    <li>
-      <a routerLink="" routerLinkActive="active">Employee login</a>
+   
+    <li *ngIf="adminLoggedIn">
+      <a routerLink="" routerLinkActive="active">ADD NEW</a>
 
       <ul>
         <li>
-
             <a routerLink="/applyleave" routerLinkActive="active">Apply Leave</a>
         </li>
         <li>
-            <a routerLink="/updatetimesheet" routerLinkActive="active">Update Timeseet</a>
-          
+            <a routerLink="/updatetimesheet" routerLinkActive="active">Update Timeseet</a>          
         </li>
         <li>
             <a routerLink="/viewempleavereport" routerLinkActive="active">Leave Report</a>
@@ -47,9 +46,13 @@
 
       </ul>
     </li>
-    <li>
+    <li *ngIf="!adminLoggedIn">
       <a routerLink="" routerLinkActive="active">Admin login</a>
     </li>
+    <li>
+      <a routerLink="" routerLinkActive="active">Employee login</a>
+    </li>
+    
 
     <li>
       <a routerLink="" routerLinkActive="active">Contact</a>
