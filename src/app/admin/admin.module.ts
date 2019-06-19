@@ -13,6 +13,7 @@ import { ViewSalaryReportComponent } from './view-salary-report/view-salary-repo
   declarations: [ViewLeaveReportComponent, AddLeaveComponent, ViewTimesheetReportComponent, AddTimesheetComponent, AddEmployeeComponent, ViewEmpReportComponent, AddSalaryComponent, ViewSalaryReportComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[AddEmployeeComponent, AddTimesheetComponent, ViewTimesheetReportComponent, AddLeaveComponent, ViewLeaveReportComponent]
 })
 export class AdminModule { }
