@@ -15,11 +15,7 @@ const routes: Routes = [
   {
     path:"employeelogin", component:EmployeeLoginComponent
   }
-<<<<<<< HEAD
-  
-  
-=======
->>>>>>> e1b565ccf52bc34055af18d3e888c2492fe71127
+
 ];
 
 @NgModule({
