@@ -60,20 +60,32 @@
     <li *ngIf="empLoggedIn">
       <a routerLink="" routerLinkActive="active">MY REPORTS</a>
 
-      <ul>
-       
+      <ul>       
         <li>
-            <a routerLink="/applyleave" routerLinkActive="active">Leave Report</a>
+            <a routerLink="/viewempleavereport" routerLinkActive="active">Leave Report</a>
         </li>
         <li>
             <a routerLink="/viewempsalaryreport" routerLinkActive="active">Salary Report</a>
         </li>
         <li>
-            <a routerLink="/updatetimesheet" routerLinkActive="active">Timesheet Report</a>
+
+            <a routerLink="/viewtimesheetreport" routerLinkActive="active">Timesheet Report</a>
         </li>
 
       </ul>
+    </li>
 
+    <li *ngIf="empLoggedIn">
+      <a routerLink="" routerLinkActive="active">MY ACCOUNTS</a>
+      <ul>       
+        <li>
+            <a routerLink="/applyleave" routerLinkActive="active">Apply Leave</a>
+        </li>
+        <li>
+            <a routerLink="/updatetimesheet" routerLinkActive="active">Update Timesheet</a>
+        </li>
+      </ul>
+    </li>
     <li>
       <a routerLink="" routerLinkActive="active">Contact</a>
 
