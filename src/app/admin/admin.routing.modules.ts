@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-<<<<<<< HEAD
 import {AddEmployeeComponent} from '../admin/add-employee/add-employee.component';
 import {AddLeaveComponent} from '../admin/add-leave/add-leave.component';
 import { AddSalaryComponent } from '../admin/add-salary/add-salary.component';
@@ -37,10 +36,6 @@ const routes: Routes = [
         path:"adminviewtimesheetreport", component:ViewTimesheetReportComponent
       }
 ];
-=======
-
-const routes: Routes = [];
->>>>>>> ffd0b53048419a02306732cc5ac74e122f0c3b00
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

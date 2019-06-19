@@ -10,6 +10,8 @@ import { ViewEmpLeavereportComponent } from './employee/view-emp-leavereport/vie
 import { ViewEmpsalaryreportComponent } from './employee/view-empsalaryreport/view-empsalaryreport.component';
 import { ViewTimesheetReportComponent } from './employee/view-timesheet-report/view-timesheet-report.component';
 import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
+import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
+import { EmployeeLoginComponent } from './auth/employee-login/employee-login.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { AddEmployeeComponent } from './admin/add-employee/add-employee.componen
     ViewEmpLeavereportComponent,
     ViewEmpsalaryreportComponent,
     ViewTimesheetReportComponent,
+    AdminLoginComponent,
+    EmployeeLoginComponent
   ],
   imports: [
     BrowserModule,
