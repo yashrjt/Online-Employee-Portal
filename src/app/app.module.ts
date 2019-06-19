@@ -9,20 +9,7 @@ import { UpdateTimesheetComponent } from './employee/update-timesheet/update-tim
 import { ViewEmpLeavereportComponent } from './employee/view-emp-leavereport/view-emp-leavereport.component';
 import { ViewEmpsalaryreportComponent } from './employee/view-empsalaryreport/view-empsalaryreport.component';
 import { ViewTimesheetReportComponent } from './employee/view-timesheet-report/view-timesheet-report.component';
-<<<<<<< HEAD
 import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
-=======
-import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
-import { EmployeeLoginComponent } from './auth/employee-login/employee-login.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
-import { AddSalaryComponent } from './admin/add-salary/add-salary.component';
-import { AddTimesheetComponent } from './admin/add-timesheet/add-timesheet.component';
-import { AddLeaveComponent } from './admin/add-leave/add-leave.component';
-import { ViewEmpReportComponent } from './admin/view-emp-report/view-emp-report.component';
-import { ViewLeaveReportComponent } from './admin/view-leave-report/view-leave-report.component';
-import { ViewSalaryReportComponent } from './admin/view-salary-report/view-salary-report.component';
->>>>>>> 281a61d60da3a5c9a01c707e78c7021dad2232c9
 
 @NgModule({
   declarations: [
@@ -32,19 +19,6 @@ import { ViewSalaryReportComponent } from './admin/view-salary-report/view-salar
     ViewEmpLeavereportComponent,
     ViewEmpsalaryreportComponent,
     ViewTimesheetReportComponent,
-<<<<<<< HEAD
-=======
-    AdminLoginComponent,
-    EmployeeLoginComponent,
-    SignupComponent,
-    AddEmployeeComponent,
-    AddSalaryComponent,
-    AddTimesheetComponent,
-    AddLeaveComponent,
-    ViewEmpReportComponent,
-    ViewLeaveReportComponent,
-    ViewSalaryReportComponent
->>>>>>> 281a61d60da3a5c9a01c707e78c7021dad2232c9
   ],
   imports: [
     BrowserModule,

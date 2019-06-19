@@ -8,11 +8,13 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ViewEmpReportComponent } from './view-emp-report/view-emp-report.component';
 import { AddSalaryComponent } from './add-salary/add-salary.component';
 import { ViewSalaryReportComponent } from './view-salary-report/view-salary-report.component';
+import { AdminRoutingModule } from './admin.routing.modules';
 
 @NgModule({
   declarations: [ViewLeaveReportComponent, AddLeaveComponent, ViewTimesheetReportComponent, AddTimesheetComponent, AddEmployeeComponent, ViewEmpReportComponent, AddSalaryComponent, ViewSalaryReportComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    AdminRoutingModule
   ],
   exports:[AddEmployeeComponent, AddTimesheetComponent, ViewTimesheetReportComponent, AddLeaveComponent, ViewLeaveReportComponent]
 })

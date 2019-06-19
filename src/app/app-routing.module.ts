@@ -38,32 +38,7 @@ const routes: Routes = [
   },
   {
     path:"employeelogin", component:EmployeeLoginComponent
-  },
-  {
-    path:"addemployee", component:AddEmployeeComponent
-  },
-  {
-    path:"addleave", component:AddLeaveComponent
-  },
-  {
-    path:"addsalary", component:AddSalaryComponent
-  },
-  {
-    path:"addtimesheet", component:AddTimesheetComponent
-  },
-  {
-    path:"viewempreport", component:ViewEmpReportComponent
-  },
-  {
-    path:"viewleavereport", component:ViewLeaveReportComponent
-  },
-  {
-    path:"viewsalaryreport", component:ViewSalaryReportComponent
-  },
-  {
-    path:"adminviewtimesheetreport", component:ViewTimesheetReportComponent
   }
-  
 ];
 
 @NgModule({
