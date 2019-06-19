@@ -10,6 +10,9 @@ import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
   declarations: [ViewEmpsalaryreportComponent, ViewEmpLeavereportComponent, ViewTimesheetReportComponent, UpdateTimesheetComponent, ApplyLeaveComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  
+  exports: [ViewEmpLeavereportComponent, ViewEmpsalaryreportComponent, ViewTimesheetReportComponent, UpdateTimesheetComponent, ApplyLeaveComponent]
+
 })
 export class EmployeeModule { }

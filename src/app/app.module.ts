@@ -16,7 +16,7 @@ import { EmployeeLoginComponent } from './auth/employee-login/employee-login.com
 @NgModule({
   declarations: [
     AppComponent,
-    ApplyLeaveComponent,
+    // ApplyLeaveComponent,
     UpdateTimesheetComponent,
     ViewEmpLeavereportComponent,
     ViewEmpsalaryreportComponent,
@@ -26,8 +26,9 @@ import { EmployeeLoginComponent } from './auth/employee-login/employee-login.com
   ],
   imports: [
     BrowserModule,
+    
+    CoreModule,
     AppRoutingModule,
-    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],
