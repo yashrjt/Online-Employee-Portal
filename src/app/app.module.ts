@@ -23,7 +23,7 @@ import { ViewSalaryReportComponent } from './admin/view-salary-report/view-salar
 @NgModule({
   declarations: [
     AppComponent,
-    ApplyLeaveComponent,
+    // ApplyLeaveComponent,
     UpdateTimesheetComponent,
     ViewEmpLeavereportComponent,
     ViewEmpsalaryreportComponent,
@@ -41,8 +41,9 @@ import { ViewSalaryReportComponent } from './admin/view-salary-report/view-salar
   ],
   imports: [
     BrowserModule,
+    
+    CoreModule,
     AppRoutingModule,
-    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],
