@@ -7,23 +7,12 @@
     
     <li>
       <a routerLink="" routerLinkActive="active">About Us</a>
-      <!-- <ul>
-        <li>
-          <a routerLink='/add-employee'> Employee</a>
-        </li>
-        <li>
-          <a routerLink="/salary"> Salary</a>
-        </li>
-        <li>
-          <a routerLink="/timesheet">Timesheet</a>
-        </li>
-        <li>
-          <a routerLink="/leave">Leave</a>
-        </li>
-      </ul> -->
-    </li>
+     </li>
      
-   
+     <li *ngIf="!adminLoggedIn">
+      <a routerLink="" routerLinkActive="active">Admin login</a>
+    </li>
+    
     <li *ngIf="adminLoggedIn">
       <a routerLink="" routerLinkActive="active">REPORTS</a>
 
@@ -62,15 +51,28 @@
 
       </ul>
     </li>
-    <li *ngIf="!adminLoggedIn">
-      <a routerLink="" routerLinkActive="active">Admin login</a>
-    </li>
+   
 
     <!-- Employee -->
-    <li>
+    <li *ngIf="!empLoggedIn">
       <a routerLink="" routerLinkActive="active">Employee login</a>
     </li>
-    
+    <li *ngIf="adminLoggedIn">
+      <a routerLink="" routerLinkActive="active">MY REPORTS</a>
+
+      <ul>
+       
+        <li>
+            <a routerLink="/" routerLinkActive="active">Leave Report</a>
+        </li>
+        <li>
+            <a routerLink="/" routerLinkActive="active">Salary Report</a>
+        </li>
+        <li>
+            <a routerLink="/" routerLinkActive="active">Timesheet Report</a>
+        </li>
+
+      </ul>
 
     <li>
       <a routerLink="" routerLinkActive="active">Contact</a>
