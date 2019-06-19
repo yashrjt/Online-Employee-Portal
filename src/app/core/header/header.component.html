@@ -7,38 +7,18 @@
     
     <li>
       <a routerLink="" routerLinkActive="active">About Us</a>
-      <!-- <ul>
-        <li>
-          <a routerLink='/add-employee'> Employee</a>
-        </li>
-        <li>
-          <a routerLink="/salary"> Salary</a>
-        </li>
-        <li>
-          <a routerLink="/timesheet">Timesheet</a>
-        </li>
-        <li>
-          <a routerLink="/leave">Leave</a>
-        </li>
-      </ul> -->
-    </li>
+     </li>
      
-    <li>
-      <a routerLink="" routerLinkActive="active">Employee login</a>
+     <li *ngIf="!adminLoggedIn">
+      <a routerLink="" routerLinkActive="active">Admin login</a>
+    </li>
+    
+    <li *ngIf="adminLoggedIn">
+      <a routerLink="" routerLinkActive="active">REPORTS</a>
 
       <ul>
-        <li>
-<<<<<<< HEAD
-          <a href="/auth/login.html">Employee </a>
-=======
-            <a routerLink="/applyleave" routerLinkActive="active">Apply Leave</a>
-            
-          
->>>>>>> 44d43e12b749b1032106005436b348cdfbb912ac
-        </li>
-        <li>
-            <a routerLink="/updatetimesheet" routerLinkActive="active">Update Timeseet</a>
-          
+          <li>
+            <a routerLink="/" routerLinkActive="active">Employee report</a>          
         </li>
         <li>
             <a routerLink="/viewempleavereport" routerLinkActive="active">Leave Report</a>
@@ -52,10 +32,65 @@
 
       </ul>
     </li>
-    <li>
-      <a routerLink="" routerLinkActive="active">Admin login</a>
+    <li *ngIf="adminLoggedIn">
+      <a routerLink="" routerLinkActive="active">ADD NEW</a>
+
+      <ul>
+          <li>
+            <a routerLink="/" routerLinkActive="active">Add Employee </a>          
+        </li>
+        <li>
+
+          <a href="/auth/login.html">Employee </a>
+
+            <a routerLink="/applyleave" routerLinkActive="active">Apply Leave</a>
+            
+            <a routerLink="/" routerLinkActive="active">Add Leave</a>
+
+        </li>
+        <li>
+            <a routerLink="/" routerLinkActive="active">Add Salary </a>
+        </li>
+        <li>
+            <a routerLink="/" routerLinkActive="active">Add Timesheet </a>
+        </li>
+
+      </ul>
+    </li>
+   
+
+    <!-- Employee -->
+    <li *ngIf="!empLoggedIn">
+      <a routerLink="" routerLinkActive="active">Employee login</a>
+    </li>
+    <li *ngIf="empLoggedIn">
+      <a routerLink="" routerLinkActive="active">MY REPORTS</a>
+
+      <ul>       
+        <li>
+            <a routerLink="/viewempleavereport" routerLinkActive="active">Leave Report</a>
+        </li>
+        <li>
+            <a routerLink="/viewempsalaryreport" routerLinkActive="active">Salary Report</a>
+        </li>
+        <li>
+            <a routerLink="/viewtimesheetreport" routerLinkActive="active">Timesheet Report</a>
+        </li>
+
+      </ul>
     </li>
 
+    <li *ngIf="empLoggedIn">
+      <a routerLink="" routerLinkActive="active">MY ACCOUNTS</a>
+      <ul>       
+        <li>
+            <a routerLink="/applyleave" routerLinkActive="active">Apply Leave</a>
+        </li>
+        <li>
+            <a routerLink="/updatetimesheet" routerLinkActive="active">Update Timesheet</a>
+        </li>
+      </ul>
+    </li>
     <li>
       <a routerLink="" routerLinkActive="active">Contact</a>
 
