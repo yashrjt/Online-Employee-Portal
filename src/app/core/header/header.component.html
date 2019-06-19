@@ -57,11 +57,10 @@
     <li *ngIf="!empLoggedIn">
       <a routerLink="" routerLinkActive="active">Employee login</a>
     </li>
-    <li *ngIf="adminLoggedIn">
+    <li *ngIf="empLoggedIn">
       <a routerLink="" routerLinkActive="active">MY REPORTS</a>
 
-      <ul>
-       
+      <ul>       
         <li>
             <a routerLink="/" routerLinkActive="active">Leave Report</a>
         </li>
@@ -73,7 +72,19 @@
         </li>
 
       </ul>
+    </li>
 
+    <li *ngIf="empLoggedIn">
+      <a routerLink="" routerLinkActive="active">MY ACCOUNTS</a>
+      <ul>       
+        <li>
+            <a routerLink="/" routerLinkActive="active">Apply Leave</a>
+        </li>
+        <li>
+            <a routerLink="/" routerLinkActive="active">Update Timesheet</a>
+        </li>
+      </ul>
+    </li>
     <li>
       <a routerLink="" routerLinkActive="active">Contact</a>
 
