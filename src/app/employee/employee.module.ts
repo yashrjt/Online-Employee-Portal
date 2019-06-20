@@ -5,11 +5,13 @@ import { ViewEmpLeavereportComponent } from './view-emp-leavereport/view-emp-lea
 import { ViewTimesheetReportComponent } from './view-timesheet-report/view-timesheet-report.component';
 import { UpdateTimesheetComponent } from './update-timesheet/update-timesheet.component';
 import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
+import { EmployeeRoutingModule } from './employee.routing.module';
 
 @NgModule({
   declarations: [ViewEmpsalaryreportComponent, ViewEmpLeavereportComponent, ViewTimesheetReportComponent, UpdateTimesheetComponent, ApplyLeaveComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    EmployeeRoutingModule 
   ],
   
   exports: [ViewEmpLeavereportComponent, ViewEmpsalaryreportComponent, ViewTimesheetReportComponent, UpdateTimesheetComponent, ApplyLeaveComponent]
