@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.adminLoggedIn=true;
+    //this.adminLoggedIn=true;
   }
 
 }
