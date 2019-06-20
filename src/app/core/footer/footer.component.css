@@ -1,61 +1,62 @@
-#footer {
-	margin: 0 auto;
-	max-width: 960px;
-	overflow: hidden;
-	padding: 30px 0 60px;
+.context-dark, .bg-gray-dark, .bg-primary {
+    color: rgba(255, 255, 255, 0.8);
 }
-#footer div {
-	float: left;
-	width: 500px;
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+    color: #ffffff;
 }
-#footer div span {
-	color: #99fa99;
-	display: block;
-	font-size: 26px;
-	line-height: 24px;
+.nav-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
-#footer div p {
-	color: #b6d8cf;
-	font-size: 12px;
-	line-height: 30px;
+
+.nav-list li a:hover:before {
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
 }
-#footer div#connect {
-	float: right;
-	overflow: hidden;
-	width: auto;
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-#footer div#connect a {
-	background: url(../../../assets/icons.png) no-repeat;
-	display: block;
-	float: left;
-	text-indent: -99999px;
+
+.social-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 23px;
+    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
 }
-#footer div#connect a#facebook {
-	background-position: 0 0;
-	height: 30px;
-	width: 16px;
+.social-container .col {
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
-#footer div#connect a#twitter {
-	background-position: 0 -30px;
-	height: 30px;
-	margin: 0 0 0 28px;
-	width: 37px;
+.nav-list li a:before {
+    content: "\f14f";
+    font: 400 21px/1 "Material Design Icons";
+    color: #4d6de6;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: -28px;
+    margin-right: 7px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .22s ease;
 }
-#footer div#connect a#googleplus {
-	background-position: 0 -61px;
-	height: 32px;
-	margin: 0 0 0 19px;
-	width: 32px;
-}
-#footer div#connect a#googleplus {
-	background-position: 0 -61px;
-	height: 32px;
-	margin: 0 0 0 19px;
-	width: 32px;
-}
-#footer div#connect a#pinterest {
-	background-position: 0 -94px;
-	height: 30px;
-	margin: 0 0 0 23px;
-	width: 30px;
+/* #container{
+    position:relative;  
+    width:100%;
+    min-height:100%; 
+    padding-bottom: 100px;  
+    box-sizing: border-box;
+} */
+
+footer{
+	height:30px;
+    position:absolute;
+    bottom:0px;
 }
