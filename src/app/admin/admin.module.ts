@@ -13,7 +13,8 @@ import { AdminRoutingModule } from './admin.routing.modules';
 @NgModule({
   declarations: [ViewLeaveReportComponent, AddLeaveComponent, ViewTimesheetReportComponent, AddTimesheetComponent, AddEmployeeComponent, ViewEmpReportComponent, AddSalaryComponent, ViewSalaryReportComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    AdminRoutingModule
   ],
   exports:[AddEmployeeComponent, AddTimesheetComponent, ViewTimesheetReportComponent, AddLeaveComponent, ViewLeaveReportComponent]
 })
