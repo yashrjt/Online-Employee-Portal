@@ -1,7 +1,7 @@
 export class Timesheet {
-    employeeId:string;
+    employeeId:number;
     employeeName:string;
-    projectId:string;
+    projectId:number;
     projectHours:string;
     endDate:string;
     action:string;

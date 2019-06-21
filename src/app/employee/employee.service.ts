@@ -1,26 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Observable, of} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { log } from 'util';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
-const httpOptions = {
-  headers: new HttpHeaders({'content-Type': 'application/json'})
-};
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  private url = 'http://127.0.0.1:8080';
+  private url = 'http://localhost:8080';
   constructor(private http:HttpClient) {}
 
   
 
-  updateTimeSheet(timesheet:any):Observable<any>{
-    return this.http.post<any>(this.url + "/updateTimesheet", timesheet,  httpOptions).pipe(catchError(this.handleError<any>('addUser')));
+  updateTimeSheet(id:number, timesheet:Object):Observable<Object>{
+    console.log(timesheet);
+    return this.http.put(this.url + `/timesheet/${id}`, timesheet);
   }
 
   // get timesheet info from backend
@@ -30,7 +26,7 @@ export class EmployeeService {
 
   // add one leave request to backend
   applyLeave(leave:any):Observable<any>{
-    return this.http.post<any>(this.url + "/save", leave,  httpOptions).pipe(catchError(this.handleError<any>('addUser')));
+    return this.http.post(this.url + "/save", leave);
   }
 
 
@@ -38,25 +34,7 @@ export class EmployeeService {
 
 
 
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
- 
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
- 
-      // TODO: better job of transforming error for user consumption
-      log(`${operation} failed: ${error.message}`);
- 
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
+  
 
 
 }
