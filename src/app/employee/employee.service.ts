@@ -20,12 +20,12 @@ export class EmployeeService {
   }
 
   // get timesheet info from backend
-  getTimeSeet():Observable<any[]>{
+  getTimeSeet():Observable<object>{
     return this.http.get<any[]>(this.url + "/findTimeSheet");
   }
 
   // add one leave request to backend
-  applyLeave(leave:any):Observable<any>{
+  applyLeave(leave:any):Observable<object>{
     return this.http.post(this.url + "/save", leave);
   }
 
