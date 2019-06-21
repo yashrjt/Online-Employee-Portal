@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ViewLeaveReportComponent } from './view-leave-report/view-leave-report.component';
 import { AddLeaveComponent } from './add-leave/add-leave.component';
@@ -14,7 +16,9 @@ import { AdminRoutingModule } from './admin.routing.modules';
   declarations: [ViewLeaveReportComponent, AddLeaveComponent, ViewTimesheetReportComponent, AddTimesheetComponent, AddEmployeeComponent, ViewEmpReportComponent, AddSalaryComponent, ViewSalaryReportComponent],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[AddEmployeeComponent, AddTimesheetComponent, ViewTimesheetReportComponent, AddLeaveComponent, ViewLeaveReportComponent]
 })

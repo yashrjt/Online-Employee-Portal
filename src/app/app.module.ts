@@ -11,6 +11,8 @@ import { EmployeeLoginComponent } from './auth/employee-login/employee-login.com
 import { AdminModule } from './admin/admin.module';
 import { EmployeeModule } from './employee/employee.module';
 import { CoreModule } from './core/core.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { CoreModule } from './core/core.module';
     EmployeeModule,
     AdminModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
