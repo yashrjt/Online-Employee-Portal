@@ -6,12 +6,14 @@ import { ViewTimesheetReportComponent } from './view-timesheet-report/view-times
 import { UpdateTimesheetComponent } from './update-timesheet/update-timesheet.component';
 import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
 import { EmployeeRoutingModule } from './employee.routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [ViewEmpsalaryreportComponent, ViewEmpLeavereportComponent, ViewTimesheetReportComponent, UpdateTimesheetComponent, ApplyLeaveComponent],
   imports: [
     CommonModule,
-    EmployeeRoutingModule 
+    EmployeeRoutingModule ,
+    HttpClientModule
   ],
   
   exports: [ViewEmpLeavereportComponent, ViewEmpsalaryreportComponent, ViewTimesheetReportComponent, UpdateTimesheetComponent, ApplyLeaveComponent]
