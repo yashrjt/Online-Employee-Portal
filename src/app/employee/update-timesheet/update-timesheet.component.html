@@ -12,22 +12,24 @@
 </tr>
 
 <tr style="background-color:#32A9EE;color:white;">
-<th>Employee Code</th>
+<th>Employee Id</th>
 <th>Employee Name</th>
-<th>Project Code</th>
+<th>Project Id</th>
 <th>Working Hours</th>
-<th>Date</th>
+<th>Ending Date</th>
 <th>Action</th>
+<th></th>
 
 
 </tr>
 
 <tr>
-<td><b>1</b></td>
-<td>India</td>
-<td><input type='text' value=''></td>
-<td><input type='text' value=''></td>
-<td><input type='text' value=''></td>
-<td><input type='text' value=''></td>
+<td #id>1</td>
+<td #name>India</td>
+<td><input #projCode type='text' value=''></td>
+<td><input #workingHour type='text' value=''></td>
+<td><input #date type='text' value=''></td>
+<td><input #action type='text' value=''></td>
+<td><button (click)="updateTime()">Update</button></td>
 </tr>
 

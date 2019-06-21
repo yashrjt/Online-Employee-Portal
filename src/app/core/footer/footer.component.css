@@ -56,7 +56,10 @@ ul, ol {
 } */
 
 footer{
-	height:30px;
-    position:absolute;
-    bottom:0px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	line-height: 60px;
 }
