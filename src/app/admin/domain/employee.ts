@@ -1,5 +1,5 @@
 export class Employee {
-    
+    public id:number;
     public salution:string;
     public status:string;
     public department:string;

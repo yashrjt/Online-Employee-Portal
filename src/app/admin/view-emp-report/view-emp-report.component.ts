@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service'
+import { Employee } from '../domain/employee';
 
 @Component({
   selector: 'app-view-emp-report',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewEmpReportComponent implements OnInit {
 
-  constructor() { }
+  employees: Employee[];
+
+  constructor(private adminService:AdminService ) { }
 
   ngOnInit() {
+    this.adminService.findAllEmployee().subscribe(data => {
+      this.employees = data;
+    })
+
   }
 
 }
