@@ -8,7 +8,7 @@ body {
  overflow: hidden;
  display: block;
  position: relative;
- padding-bottom: 300px; /* height of your footer */
+ padding-bottom: 150px; /* height of your footer */
 }
 footer {
  
