@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked} from '@angu
 import { Authuser } from 'src/app/auth/pojo/authuser';
 import { AppService } from 'src/app/app.service';
 import {  Router } from '@angular/router';
+import { longStackSupport } from 'q';
 
 
 
@@ -37,10 +38,17 @@ export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
     // console.log(this.email.nativeElement.value);
     // console.log(this.password.nativeElement.value);
     this.service.login(this.authuser).subscribe(
+<<<<<<< HEAD
       resp=>
       localStorage.setItem(this.authuser.username, resp)
+=======
+      resp=>console.log(resp)
+   
+>>>>>>> a780c9358b0913a004d94a7395fdd64d23c8562a
       
     )
+
+
     // this.service.login(this.authuser).subscribe((resp:string)=>this.token = resp);
     // console.log(this.token);
   }

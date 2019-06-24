@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Authuser } from './auth/pojo/authuser';
-import {map} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
   //headerr
+
 //   httpOptions = {
 //    headers: new HttpHeaders({
 //      'Content-Type':  'application/json',
@@ -22,6 +23,8 @@ httpOptions = {
     // 'responseType': 'text'
   })
 };
+
+
 
  
 
