@@ -27,15 +27,18 @@ export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
   }
 
   emploginfunc(){
+    localStorage.setItem("lei", "value");
     this.authuser = new Authuser();
     this.authuser.username=this.email.nativeElement.value;
     this.authuser.password = this.password.nativeElement.value;
     this.authuser.role = "employee";
-    console.log(this.authuser.username);
-    console.log(this.email.nativeElement.value);
-    console.log(this.password.nativeElement.value);
+    console.log(this.authuser);
+    // console.log(this.authuser.username);
+    // console.log(this.email.nativeElement.value);
+    // console.log(this.password.nativeElement.value);
     this.service.login(this.authuser).subscribe(
-      resp=>console.log(resp)
+      resp=>
+      localStorage.setItem(this.authuser.username, resp)
       
     )
     // this.service.login(this.authuser).subscribe((resp:string)=>this.token = resp);

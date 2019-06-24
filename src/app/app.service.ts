@@ -8,12 +8,20 @@ import {map} from 'rxjs/operators';
 })
 export class AppService {
   //headerr
-  httpOptions = {
-   headers: new HttpHeaders({
-     'Content-Type':  'application/json',
-     'Authorization': 'my-auth-token'
-   })
- };
+//   httpOptions = {
+//    headers: new HttpHeaders({
+//      'Content-Type':  'application/json',
+//      'Authorization': 'my-auth-token'
+//    })
+//  };
+
+httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    // 'Authorization': 'my-auth-token',
+    // 'responseType': 'text'
+  })
+};
 
  
 
@@ -22,7 +30,9 @@ export class AppService {
 
   //login get response token or null;
   login(authuser: Authuser) {
-   return this.http.post("http://localhost:8100/token", JSON.stringify(authuser), this.httpOptions).pipe(map((res: Response) => res.json())); 
-  
-}
+  //  return this.http.post("http://localhost:8100/token", authuser, this.httpOptions); 
+  return this.http.post("http://localhost:8100/token", JSON.stringify(authuser), 
+  {headers: {'Content-Type': 'application/json', 'Authorization': 'my-auth-token'},responseType:'text'}); 
+
+  }
 }
