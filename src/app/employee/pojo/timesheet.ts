@@ -5,5 +5,4 @@ export class Timesheet {
     projectHours:string;
     endDate:string;
     action:string;
-
 }
