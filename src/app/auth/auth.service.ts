@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  empLogin:string = "http://localhost:8100/token"
+  empLogin:string = "http://localhost:8100/auth"
    //headerr
   headers:any = new Headers( {  
     'Content-Type':  'application/json',

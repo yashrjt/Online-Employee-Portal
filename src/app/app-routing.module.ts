@@ -16,7 +16,7 @@ const routes: Routes = [
     path:"employeelogin", component:EmployeeLoginComponent
   },
   {
-    path:"home", component:AppComponent
+    path:"emp", redirectTo:"viewtimesheetreport", pathMatch:'full'
   }
 
 ];

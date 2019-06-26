@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { EmployeeService } from 'src/app/employee/employee.service';
-import {Timesheet} from 'src/app/employee/pojo/timesheet';
+import {Timesheet} from 'src/app/employee/model/timesheet';
+
 
 @Component({
   selector: 'app-update-timesheet',

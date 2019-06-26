@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked, NgModule} f
 import { Authuser } from 'src/app/auth/model/authuser';
 import {  Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import {FormsModule} from  '@angular/forms';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import{JwtObj} from 'src/app/auth/model/jwt-obj'
+
 
 
 
@@ -14,8 +16,8 @@ import {FormsModule} from  '@angular/forms';
 export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
   email:any;
   password:any;
-  // @ViewChild('email') email:any;
-  // @ViewChild("password") password:any;
+  jwt = new JwtObj();
+  jwtHelper = new  JwtHelperService();
 
   authuser:Authuser;
   token:string;
@@ -34,14 +36,29 @@ export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
     this.authuser = new Authuser();
     this.authuser.username=this.email;
     this.authuser.password = this.password;
-    this.authuser.role = "employee";
+    this.authuser.role = "emp";
     console.log(this.authuser);
  
     this.service.emplogin(this.authuser).subscribe(
-      resp=>console.log(resp)
-   
-      
+      resp =>{
+        this.token = resp
+        if(this.token == ""){
+          console.log("return is empty string")
+        }else{
+          
+          this.jwt.token = this.token;
+          this.jwt.expiration = this.jwtHelper.getTokenExpirationDate(this.token);
+          console.log(this.jwt);
+          localStorage.setItem("expire", JSON.stringify(this.jwt));
+
+           //need to do jump to employee home page,not exist
+          this.router.navigate(["emp"]);
+        }
+
+      }
     )
+    
+    
 
 
     // this.service.login(this.authuser).subscribe((resp:string)=>this.token = resp);

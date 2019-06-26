@@ -5,7 +5,9 @@
           <div class="card card-signin my-5">
             <div class="card-body">
               <h5 class="card-title text-center">Sign In</h5>
+
               <form class="form-signin">
+                <span style="color:red" *ngIf="token == ''" >password or username not correct</span>
                 <div class="form-label-group">
                   Email Address<input  [(ngModel)]="email" name="email" value="" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                   <!-- <label for="inputEmail"></label> -->
