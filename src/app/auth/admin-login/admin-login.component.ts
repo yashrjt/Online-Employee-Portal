@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginInfo } from '../../auth/login-info'
 
 @Component({
   selector: 'app-admin-login',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor() { }
+  private logginInfo: LoginInfo;
+
+
+
 
   ngOnInit() {
   }
+
+
 
 }

@@ -13,8 +13,7 @@
 
 <tr style="background-color:#32A9EE;color:white;">
 <th>Employee Code</th>
-<th>Month</th>
-<th>Year</th>
+<th>PayDate</th>
 <th>Amount</th>
 <th>Action</th>
 
@@ -22,11 +21,10 @@
 
 </tr>
 
-<tr>
-<td><b>1001</b></td>
-<td></td>
-<td></td>
-<td></td>
+<tr *ngFor="let salary of salarys">
+<td><b>{{salary.employee.id}}</b></td>
+<td>{{salary.payDate}}</td>
+<td>{{salary.payAmount}}</td>
 <td>
   
 </td>

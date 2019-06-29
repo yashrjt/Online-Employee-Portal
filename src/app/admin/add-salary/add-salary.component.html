@@ -18,7 +18,7 @@
           <div class="form-group">
             <div class="col-sm-6">
               <label for="employeeid">Employee Id</label><span class="star">*</span>
-              <input type="text" name="employeeid" id="employeeid" placeholder="Employee Id" class="form-control"/>
+              <input type="text" [(ngModel)]="employee_id" name="employeeid" id="employeeid" placeholder="Employee Id" class="form-control"/>
             </div>
           </div>
 
@@ -26,14 +26,14 @@
           <div class="form-group">
             <div class="col-sm-6">
               <label for="paydate">Pay Date</label><span class="star">*</span>
-              <input type="date" name="paydate" id="paydate" class="form-control">
+              <input type="date" [(ngModel)]="salary.payDate" name="paydate" id="paydate" class="form-control">
             </div>
           </div>
           
           <div class="form-group">
               <div class="col-sm-6">
                 <label for="salary">Amount Paid</label><span class="star">*</span>
-                <input type="text" name="salary" id="salary" placeholder="Amount Paid" class="form-control">
+                <input type="text" [(ngModel)]="salary.payAmount" name="salary" id="salary" placeholder="Amount Paid" class="form-control">
               </div>
           </div> 
 
@@ -41,7 +41,7 @@
           <div class="form-group" style="margin-top: 30px">
             <div class="col-sm-12">
               <div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" (click)="addSalary()" class="btn btn-primary">Submit</button>
               </div>
             </div>
           </div>
