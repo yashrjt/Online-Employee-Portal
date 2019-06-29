@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Timesheet} from 'src/app/employee/pojo/timesheet'
+import {Timesheet} from 'src/app/employee/model/timesheet'
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -15,6 +15,8 @@ export class ViewTimesheetReportComponent implements OnInit {
 
   ngOnInit() {
     console.log("test timesheet")
+    
+    //get employee timesheet info from backend
     this.service.getTimeSeet().subscribe((data:any)=>console.log(data.employeeId));
     
   }

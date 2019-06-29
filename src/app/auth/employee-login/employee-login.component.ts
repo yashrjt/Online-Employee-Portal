@@ -1,15 +1,67 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked, NgModule} from '@angular/core';
+import { Authuser } from 'src/app/auth/model/authuser';
+import {  Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import{JwtObj} from 'src/app/auth/model/jwt-obj'
+
+
+
 
 @Component({
   selector: 'app-employee-login',
   templateUrl: './employee-login.component.html',
   styleUrls: ['./employee-login.component.css']
 })
-export class EmployeeLoginComponent implements OnInit {
+export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
+  email:any;
+  password:any;
+  jwt = new JwtObj();
+  jwtHelper = new  JwtHelperService();
 
-  constructor() { }
+  authuser:Authuser;
+  token:string;
+  
+  constructor(private service: AuthService, private router:Router) { }
 
   ngOnInit() {
   }
 
+  ngAfterViewChecked(){
+    
+  }
+
+  emploginfunc(){
+    console.log(this.email);
+    this.authuser = new Authuser();
+    this.authuser.username=this.email;
+    this.authuser.password = this.password;
+    this.authuser.role = "emp";
+    console.log(this.authuser);
+ 
+    this.service.emplogin(this.authuser).subscribe(
+      resp =>{
+        this.token = resp
+        if(this.token == ""){
+          console.log("return is empty string")
+        }else{
+          
+          this.jwt.token = this.token;
+          this.jwt.expiration = this.jwtHelper.getTokenExpirationDate(this.token);
+          console.log(this.jwt);
+          localStorage.setItem("expire", JSON.stringify(this.jwt));
+
+           //need to do jump to employee home page,not exist
+          this.router.navigate(["emp"]);
+        }
+
+      }
+    )
+    
+    
+
+
+    // this.service.login(this.authuser).subscribe((resp:string)=>this.token = resp);
+    // console.log(this.token);
+  }
 }

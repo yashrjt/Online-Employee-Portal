@@ -8,11 +8,11 @@ import { ViewEmpReportComponent } from './view-emp-report/view-emp-report.compon
 import { ViewLeaveReportComponent } from './view-leave-report/view-leave-report.component';
 import { ViewSalaryReportComponent } from './view-salary-report/view-salary-report.component';
 import { ViewTimesheetReportComponent} from './view-timesheet-report/view-timesheet-report.component';
-
+import {AuthGuard} from '../auth/auth.guard';
 
 const routes: Routes = [
     {
-        path:"addemployee", component:AddEmployeeComponent
+        path:"addemployee", component:AddEmployeeComponent,canActivate:[AuthGuard]
       },
       {
         path:"addleave", component:AddLeaveComponent
