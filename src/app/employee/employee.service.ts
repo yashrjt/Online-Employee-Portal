@@ -22,9 +22,14 @@ export class EmployeeService {
 
 
 
-  
+  token:string = localStorage.getItem("token");
 
-  private url = 'http://localhost:8081';
+  employeeurl:string = "http://localhost:8100/emp"
+   //headerr
+  headers:any = new Headers( {  
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'  
+  });
   constructor(private http:HttpClient) {}
 
 
@@ -33,47 +38,24 @@ export class EmployeeService {
   updateTimeSheet(id:number, timesheet:Object){
     console.log(timesheet);
     // return this.http.put(this.url + `/timesheet/${id}`, timesheet)
-    return this.http.post(this.url + `/timesheet/${id}`, timesheet) 
+    return this.http.post(this.employeeurl + `/timesheet/${id}`, timesheet) 
      .pipe(map((res: Response) => res.json())); 
       
   }
 
   // get timesheet info from backend
   getTimeSeet():Observable<object>{
-    return this.http.get<any[]>(this.url + "/findTimeSheet");
+    return this.http.get<any[]>(this.employeeurl + "/timesheet"+`${this.token}`);
   }
 
   // add one leave request to backend
   applyLeave(leave:any):Observable<object>{
-    return this.http.post(this.url + "/save", leave);
+    return this.http.post(this.employeeurl + "/save", leave);
   }
 
  
 
-//   authenticate(username, password) {
-//     return this.httpClient.post<any>('http://localhost:8080/authenticate',{username,password}).pipe(
-//      map(
-//        userData => {
-//         sessionStorage.setItem('username',username);
-//         let tokenStr= 'Bearer '+userData.token;
-//         sessionStorage.setItem('token', tokenStr);
-//         return userData;
-//        }
-//      )
 
-//     );
-//   }
-
-
-// isUserLoggedIn() {
-//   let user = sessionStorage.getItem('username')
-//   //console.log(!(user === null))
-//   return !(user === null)
-// }
-
-// logOut() {
-//   sessionStorage.removeItem('username')
-// }
 
 
 

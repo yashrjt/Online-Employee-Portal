@@ -6,6 +6,7 @@ import { EmployeeLoginComponent } from './employee-login/employee-login.componen
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { interceptingHandler } from '@angular/common/http/src/module';
 
 @NgModule({
   declarations: [ SignupComponent, EmployeeLoginComponent, AdminLoginComponent],

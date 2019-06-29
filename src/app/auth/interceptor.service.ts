@@ -12,7 +12,7 @@ export class InterceptorService implements HttpInterceptor {
     //查看当前拦截到的httprequest 是哪
     console.log(req.url)
     //两个登录页面(employee and admin)
-    if(req.url != "http://localhost:4200/emlog" && req.url !="http://localhost:4200/admlog" ){
+    if(req.url != "http://localhost:4200/auth/emplogin" && req.url !="http://localhost:4200/admlog" ){
       //检测token是否存在
       if(localStorage.getItem("expire")){
         const token = localStorage.getItem("expire");

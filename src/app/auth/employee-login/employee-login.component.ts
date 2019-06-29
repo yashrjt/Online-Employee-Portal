@@ -46,10 +46,12 @@ export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
           console.log("return is empty string")
         }else{
           
+          //save token to localstorage for future authenticating
           this.jwt.token = this.token;
           this.jwt.expiration = this.jwtHelper.getTokenExpirationDate(this.token);
+          this.jwt.username = this.authuser.username;
           console.log(this.jwt);
-          localStorage.setItem("expire", JSON.stringify(this.jwt));
+          localStorage.setItem("token", JSON.stringify(this.jwt));
 
            //need to do jump to employee home page,not exist
           this.router.navigate(["emp"]);

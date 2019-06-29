@@ -33,7 +33,7 @@ import { InterceptorService } from './auth/interceptor.service';
   providers: [
     [{
       //multi:true 表示这个Http_Interceptors,可以对应多个userClass
-      provide:HTTP_INTERCEPTORS, userClass:InterceptorService, multi: true 
+      provide:HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true 
 
     }]
   ],
