@@ -18,4 +18,5 @@ export class AuthService {
   emplogin(emp:any){
     return this.http.post(this.empLogin + "/emplogin", emp, {headers:this.headers , responseType:"text"} )
   }
+
 }
