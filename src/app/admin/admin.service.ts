@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Employee } from './domain/employee';
@@ -9,17 +9,20 @@ import { Salary } from './domain/salary';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminService {
-  private API = "//localhost:8080/";
+export class AdminService implements OnInit {
+  private API = "//localhost:8102/auth/admin";
   private adminUrl: string;
+ 
+
 
   constructor(private http:HttpClient) {
-    this.adminUrl = this.API + "addemployee";
-    
+  }
+   ngOnInit(){
+  
    }
 
-   public saveEmployeeInformation(employee: Employee){
-     return this.http.post<Employee>(this.adminUrl, employee);
+   public saveEmployeeInformation(employee: Employee, user:User, address:Address ){
+     return this.http.post<Employee>(this.API+ "/emp", employee);
    }
 
    public findAllEmployee(): Observable<Employee[]>{

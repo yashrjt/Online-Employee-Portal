@@ -12,11 +12,14 @@ export class InterceptorService implements HttpInterceptor {
     //查看当前拦截到的httprequest 是哪
     console.log(req.url)
     //两个登录页面(employee and admin)
-    if(req.url != "http://localhost:4200/auth/emplogin" && req.url !="http://localhost:4200/admlog" ){
+    if(req.url != "http://localhost:8102/auth/emplogin" ){
       //检测token是否存在
-      if(localStorage.getItem("expire")){
-        const token = localStorage.getItem("expire");
-        authReq = req.clone({setHeaders:{"jwtHeader":token}})
+      console.log("interceptor")
+      if(localStorage.getItem("token")){
+        console.log("find token")
+        //这里的token是一个json obj ，需要把token剥离出来
+        const token = localStorage.getItem("token");
+        authReq = req.clone({setHeaders:{"jwtToken":JSON.parse(token).token}})
         return next.handle(authReq);
       }
 

@@ -22,7 +22,7 @@ export class AddEmployeeComponent implements OnInit {
     this.employee.gender = 'male';
     this.employee.department = 'JAVA';
     this.employee.middleName ='';
-    this.address.address2='';
+    // this.address.address2='';
    }
 
   ngOnInit() {
@@ -32,7 +32,8 @@ export class AddEmployeeComponent implements OnInit {
     console.log(this.employee)
     console.log(this.address)
     console.log(this.user)
-    this.adminService.saveEmployeeInformation(this.employee).subscribe();
+    this.user.role = 'emp';      //add guy with emp authorization
+    this.adminService.saveEmployeeInformation(this.employee, this.user, this. address).subscribe();
   }
 
 }
