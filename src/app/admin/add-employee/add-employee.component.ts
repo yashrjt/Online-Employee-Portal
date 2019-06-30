@@ -4,6 +4,7 @@ import { Address } from '../domain/address';
 import { User } from '../domain/user';
 import { AdminService} from '../admin.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TotalInfo } from '../domain/total-info';
 
 @Component({
   selector: 'app-add-employee',
@@ -15,13 +16,15 @@ export class AddEmployeeComponent implements OnInit {
   employee = new Employee();
   address = new Address();
   user = new User();
+  totalinfo = new TotalInfo();
+  back:string;
 
   constructor(private adminService:AdminService, private route: ActivatedRoute, private router: Router) {
     this.employee.salution = 'Mr';
     this.employee.status = 'full-time';
     this.employee.gender = 'male';
     this.employee.department = 'JAVA';
-    this.employee.middleName ='';
+    // this.employee.middleName ='';
     // this.address.address2='';
    }
 
@@ -33,7 +36,12 @@ export class AddEmployeeComponent implements OnInit {
     console.log(this.address)
     console.log(this.user)
     this.user.role = 'emp';      //add guy with emp authorization
-    this.adminService.saveEmployeeInformation(this.employee, this.user, this. address).subscribe();
+    this.totalinfo.address = this.address;
+    this.totalinfo.employee = this.employee;
+    this.totalinfo.user = this.user;
+    this.adminService.saveEmployeeInformation(this.totalinfo).subscribe((resp) => {
+      this.back= resp;
+    })
   }
 
 }

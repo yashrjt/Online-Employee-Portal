@@ -14,7 +14,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  //employee and admin both user this one
+  //employee and admin both user this
   emplogin(emp:any){
     return this.http.post(this.empLogin + "/emplogin", emp, {headers:this.headers , responseType:"text"} )
   }

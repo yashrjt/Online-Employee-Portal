@@ -14,7 +14,7 @@ import{JwtObj} from 'src/app/auth/model/jwt-obj'
   styleUrls: ['./employee-login.component.css']
 })
 export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
-  email:any;
+  username:any;
   password:any;
   jwt = new JwtObj();
   jwtHelper = new  JwtHelperService();
@@ -32,9 +32,9 @@ export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
   }
 
   emploginfunc(){
-    console.log(this.email);
+    console.log(this.username);
     this.authuser = new Authuser();
-    this.authuser.username=this.email;
+    this.authuser.username=this.username;
     this.authuser.password = this.password;
     this.authuser.role = "emp";
     console.log(this.authuser);
