@@ -22,7 +22,7 @@ export class AdminLoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  adminloginfuc(){
+  adminloginfunc(){
     this.service.emplogin(this.user).subscribe(
       resp =>{
         this.token = resp

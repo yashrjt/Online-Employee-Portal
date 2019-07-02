@@ -1,8 +1,11 @@
 export class Timesheet {
     employeeCode:number;
-    employeeName:string;
     projectCode:number;
-    projectHours:string;
+    task:string;
+    taskDescription:string;
+    // employeeName:string;
+
     endDate:string;
+    // dueDay:string
     action:string;
 }

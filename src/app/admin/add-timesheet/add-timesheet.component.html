@@ -65,39 +65,30 @@
 
           <!-- Form Name -->
           <legend>Timesheet Entry Form</legend>
-
+          <span style="color:red">{{errorinfo}}</span>
 
           <div class="form-group">
               <div class="col-sm-6">
+
               <label for="exampleFormControlInput11">Select Employee Code</label><span class="star">*</span>
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Please Select
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
+              <br>
+              <select style = "width:150px" class="btn btn-secondary dropdown-toggle"  name = "employee" [(ngModel)]="timesheet.employeeCode" >
+                <option *ngFor="let item of employees" [value]='item.id'>{{item.firstName}}<span>&nbsp;</span>{{item.lastName}}</option>  
+
+              </select>
+
+
               </div>
             </div>
           
             <div class="form-group">
                 <div class="col-sm-6">
-              <label for="exampleFormControlInput12">Select Project Code</label><span class="star">*</span>
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Please Select
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
+              <label for="exampleFormControlInput11">Select Project Code</label><span class="star">*</span>
+              <br>
+              <select style = "width:150px" class="btn btn-secondary dropdown-toggle"  name = "employee" [(ngModel)]="timesheet.projectCode" >
+                <option *ngFor="let item of projects" [value]='item.projId'>{{item.projName}}</option>  
+
+              </select>
               </div>
             </div>
 
@@ -107,8 +98,8 @@
          
           <div class="form-group">
             <div class="col-sm-6">
-              <label for="employeeid">Work Title</label><span class="star">*</span>
-              <input type="text" name="employeeid" id="employeeid" placeholder="" class="form-control"/>
+              <label for="employeeid">Task</label><span class="star">*</span>
+              <input type="text" name="employeeid" id="employeeid" placeholder="" class="form-control" [(ngModel)]="timesheet.task"/>
             </div>
           </div>
 
@@ -116,14 +107,14 @@
           <div class="form-group">
             <div class="col-sm-6">
               <label for="paydate">Work Description</label><span class="star">*</span>
-              <input type="text" name="paydate" id="paydate" class="form-control">
+              <input type="text" name="paydate" id="paydate" class="form-control" [(ngModel)]="timesheet.taskDescription">
             </div>
           </div>
           
           <div class="form-group">
               <div class="col-sm-6">
-                <label for="salary">Total Walking Hours</label><span class="star">*</span>
-                <input type="text" name="salary" id="salary" placeholder="" class="form-control">
+                <label for="salary">Ending Date</label><span class="star">*</span>
+                <input type="date" name="salary" id="salary" placeholder="" class="form-control" [(ngModel)]="timesheet.endDate">
               </div>
           </div> 
 
@@ -131,7 +122,7 @@
           <div class="form-group" style="margin-top: 30px">
             <div class="col-sm-12">
               <div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button (click)="addTimesheet()" type="submit" class="btn btn-primary">Submit</button>
               </div>
             </div>
           </div>

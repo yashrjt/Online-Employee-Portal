@@ -9,12 +9,12 @@ import { Employee } from '../domain/employee';
 })
 export class ViewEmpReportComponent implements OnInit {
 
-  employees: Employee[];
+  employees: any;
 
   constructor(private adminService:AdminService ) { }
 
   ngOnInit() {
-    this.adminService.findAllEmployee().subscribe(data => {
+    this.adminService.findAllEmployees().subscribe(data => {
       this.employees = data;
     })
 

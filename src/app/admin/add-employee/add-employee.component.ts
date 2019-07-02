@@ -18,6 +18,7 @@ export class AddEmployeeComponent implements OnInit {
   user = new User();
   totalinfo = new TotalInfo();
   back:string;
+  errorinfo:string = "";
 
   constructor(private adminService:AdminService, private route: ActivatedRoute, private router: Router) {
     this.employee.salution = 'Mr';
@@ -31,6 +32,9 @@ export class AddEmployeeComponent implements OnInit {
   ngOnInit() {
   }
 
+  //insert a new employee data to database
+  //call admin server method addTimesheet
+  //check the back value
   createNewEmployee() {
     console.log(this.employee)
     console.log(this.address)
@@ -41,6 +45,10 @@ export class AddEmployeeComponent implements OnInit {
     this.totalinfo.user = this.user;
     this.adminService.saveEmployeeInformation(this.totalinfo).subscribe((resp) => {
       this.back= resp;
+      console.log(this.back)
+      if(this.back=="error" ||this.back=="false" ){
+        this.errorinfo = "log in expiration";
+      }
     })
   }
 

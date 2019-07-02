@@ -12,6 +12,7 @@
 
           <!-- Form Name -->
           <legend>Personal Information Details</legend>
+          <span style="color:red">{{errorinfo}}</span>
 
           <div class="form-group">
                 <div class="col-sm-4">
@@ -129,7 +130,7 @@
           <div class="form-group">
           <div class="col-sm-4">
                 <label for="country">Country</label><span class="star">*</span>
-          <input type="text" [(ngModel)]="address.postalCode" name="postalCode" placeholder="Country" class="form-control">
+          <input type="text" [(ngModel)]="address.country" name="country" placeholder="Country" class="form-control">
         </div>
         </div>
 

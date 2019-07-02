@@ -41,9 +41,9 @@ export class UpdateTimesheetComponent implements OnInit, AfterViewInit {
     // get data from html and save to a obj 
     this.timeSheet.action = this.action.nativeElement.value;
     this.timeSheet.employeeCode = Number(this.id.nativeElement.textContent);
-    this.timeSheet.employeeName = this.name.nativeElement.textContent;
+    // this.timeSheet.employeeName = this.name.nativeElement.textContent;
     this.timeSheet.endDate = this.date.nativeElement.value;
-    this.timeSheet.projectHours = this.workingHour.nativeElement.value;
+    // this.timeSheet.projectHours = this.workingHour.nativeElement.value;
     this.timeSheet.projectCode = Number(this.projCode.nativeElement.value);
 
     //call method from employee service pass obj to back end
