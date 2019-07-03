@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { EmployeeService } from 'src/app/employee/employee.service';
 import {Timesheet} from 'src/app/employee/model/timesheet';
-
+import { Project } from 'src/app/admin/domain/project';
 
 @Component({
   selector: 'app-update-timesheet',
@@ -9,45 +9,54 @@ import {Timesheet} from 'src/app/employee/model/timesheet';
   styleUrls: ['./update-timesheet.component.css']
 })
 export class UpdateTimesheetComponent implements OnInit, AfterViewInit {
-  @ViewChild('projCode') projCode:any;
-  @ViewChild("workingHour") workingHour:any;
-  @ViewChild("date") date:any;
-  @ViewChild("action") action:any;
-  @ViewChild("id") id:any;
-  @ViewChild("name") name:any;
+  timesheet = new Timesheet();
+  errorinfo:string;
+  timesheets:any;
+  projects:any;
+  project = new Project();
+
+
 
  
-  timeSheet:Timesheet;
+ 
 
   constructor(private service: EmployeeService) { }
 
   ngOnInit() {
+    this.service.getTimesheet().subscribe(resp=>{
+      if(resp == null){
+        this.errorinfo = "login expiration";
+      }else{
+        this.timesheets = resp;
+        console.log(this.timesheets);
+      }
+    })
+
+    
   }
 
   ngAfterViewInit(){
-    
+    this.service.getProjects().subscribe(resp=>{
+      if(resp == null){
+        this.errorinfo = "login expiration";
+      }else{
+        this.projects = resp;
+        console.log(this.projects);
+      }
+    });
   }
 
-  updateTime(){
-    this.timeSheet = new Timesheet();
-    console.log(this.projCode.nativeElement.value);
-    console.log(this.workingHour.nativeElement.value);
-    console.log(this.date.nativeElement.value);
-    console.log(this.action.nativeElement.value);
-    console.log(this.id.nativeElement.textContent);
-    console.log(this.name.nativeElement.textContent);
+  //update timesheet, if return is null ,update fail
+  updateTimesheet(idx:number){
+    this.service.updateTimeSheet(this.timesheets[idx]).subscribe(resp=>{
+      if(resp == null){
+        this.errorinfo = "login expiration";
+      }
+    })
     
-
-    // get data from html and save to a obj 
-    this.timeSheet.action = this.action.nativeElement.value;
-    this.timeSheet.employeeCode = Number(this.id.nativeElement.textContent);
-    // this.timeSheet.employeeName = this.name.nativeElement.textContent;
-    this.timeSheet.endDate = this.date.nativeElement.value;
-    // this.timeSheet.projectHours = this.workingHour.nativeElement.value;
-    this.timeSheet.projectCode = Number(this.projCode.nativeElement.value);
-
-    //call method from employee service pass obj to back end
-    this.service.updateTimeSheet(this.timeSheet.employeeCode, this.timeSheet).subscribe();
+    
   }
+ 
+
 
 }

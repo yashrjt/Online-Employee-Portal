@@ -32,6 +32,7 @@ export class AdminLoginComponent implements OnInit {
           this.jwt.token = this.token;
           this.jwt.expiration = this.jwtHelper.getTokenExpirationDate(this.token);
           this.jwt.username = this.user.username;
+          this.jwt.role = "admin";
           console.log(this.jwt);
           localStorage.setItem("token", JSON.stringify(this.jwt));
 

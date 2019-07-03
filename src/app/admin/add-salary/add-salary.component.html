@@ -11,6 +11,7 @@
         <fieldset>
 
           <!-- Form Name -->
+          <span style="color:red">{{errorinfo}}</span>
           <legend>Pay Employee Salary</legend>
 
           <!-- Text input-->
@@ -18,15 +19,21 @@
           <div class="form-group">
             <div class="col-sm-6">
               <label for="employeeid">Employee Id</label><span class="star">*</span>
-              <input type="text" [(ngModel)]="employee_id" name="employeeid" id="employeeid" placeholder="Employee Id" class="form-control"/>
+              <br>
+              <select style="width:350px; height: 33px" name="employeeid" [(ngModel)]="salary.empId">
+                <option *ngFor="let item of employees" [value]=item.id>{{item.id}}</option>
+
+              </select>
             </div>
           </div>
 
           <!-- Text input-->
           <div class="form-group">
             <div class="col-sm-6">
-              <label for="paydate">Pay Date</label><span class="star">*</span>
-              <input type="date" [(ngModel)]="salary.payDate" name="paydate" id="paydate" class="form-control">
+              <label >Pay Date</label><span class="star">*</span>
+              <select style="width:350px; height: 33px" name="day" [(ngModel)]="salary.payDate">
+              <option *ngFor="let item of days" [value]="item">{{item}}<span>th of the month</span></option>
+            </select>
             </div>
           </div>
           

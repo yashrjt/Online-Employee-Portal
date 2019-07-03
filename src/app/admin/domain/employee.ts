@@ -11,4 +11,5 @@ export class Employee {
     public nationality:string;
     public email:string;
     public mobile:string;
+    public username:string;
 }

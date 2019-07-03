@@ -9,6 +9,8 @@ import { EmployeeService } from '../employee.service';
 })
 export class ViewTimesheetReportComponent implements OnInit {
   timeSheet:Timesheet;
+  errorinfo:string;
+  timesheets: any;
 
 
   constructor(private service:EmployeeService) { }
@@ -17,7 +19,14 @@ export class ViewTimesheetReportComponent implements OnInit {
     console.log("test timesheet")
     
     //get employee timesheet info from backend
-    this.service.getTimeSeet().subscribe((data:any)=>console.log(data.employeeId));
+    this.service.getTimesheet().subscribe(resp=>{
+      if(resp == null){
+        this.errorinfo = "login expiration";
+      }else{
+        this.timesheets = resp;
+        console.log(this.timesheets);
+      }
+    })
     
   }
 

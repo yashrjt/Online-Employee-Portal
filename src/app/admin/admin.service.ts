@@ -44,26 +44,27 @@ export class AdminService implements OnInit {
     return this.http.get<Project[]>(this.url1 + "/proj",{headers:this.headers, responseType:"json"} )
   }
 
+
   public addTimesheet(timesheet:Timesheet){
     return this.http.post(this.API+ "/timesheet", timesheet, {headers:this.headers, responseType:"text"})
   }
 
-  
+  public addSalary(salary: Salary){
+    console.log(salary)
+    return this.http.post(this.API + "/salary", salary, {headers:this.headers, responseType:"text"});
+  }
  
 
-   public findAllEmployee(): Observable<Employee[]>{
-     return this.http.get<Employee[]>(this.API + "employees");
-   }
+   
+
+
 
    public findEmployeeById(id: number): Observable<any>{
      console.log("in get")
      return this.http.get(this.API + "findEmployee/" + id);
    }
 
-   public addSalary(salary: Salary){
-     console.log("in addSalary")
-     return this.http.post<Salary>(this.API + "addsalary", salary);
-   }
+   
 
    public findAllSalary(): Observable<any[]>{
      return this.http.get<Salary[]>(this.API + "salarys");

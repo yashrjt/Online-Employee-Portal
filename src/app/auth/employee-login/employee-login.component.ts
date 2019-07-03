@@ -50,6 +50,7 @@ export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
           this.jwt.token = this.token;
           this.jwt.expiration = this.jwtHelper.getTokenExpirationDate(this.token);
           this.jwt.username = this.authuser.username;
+          this.jwt.role = "emp"
           console.log(this.jwt);
           localStorage.setItem("token", JSON.stringify(this.jwt));
 

@@ -10,29 +10,31 @@ import { Employee } from '../domain/employee';
   styleUrls: ['./add-salary.component.css']
 })
 export class AddSalaryComponent implements OnInit {
-  salary;
-  employee_id:number;
+  salary = new Salary();
+  employees:any
+  errorinfo:string
+  days:number[];
 
 
   constructor(private adminService : AdminService) {
-    this.salary = new Salary();
+    this.days = [5, 15, 25, ]
   }
 
   ngOnInit() {
+    this.adminService.findAllEmployees().subscribe(resp=>{
+      if(resp == null){
+        this.errorinfo = "login expiration"
+      }else{
+        this.employees = resp;
+        console.log(this.employees);
+      }
+    });    
    
   }
 
   addSalary(){
-    console.log(this.salary);
-    console.log(this.employee_id);
-
-    this.adminService.findEmployeeById(this.employee_id).subscribe(
-      data =>{
-        this.salary.employee = data;
-        console.log(this.salary);
-      }, error => console.log(error)
-    );
     
+    console.log("salaryid " + this.salary.empId)
     this.adminService.addSalary(this.salary).subscribe();
   }
 

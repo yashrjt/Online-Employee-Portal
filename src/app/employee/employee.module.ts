@@ -7,13 +7,15 @@ import { UpdateTimesheetComponent } from './update-timesheet/update-timesheet.co
 import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
 import { EmployeeRoutingModule } from './employee.routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ViewEmpsalaryreportComponent, ViewEmpLeavereportComponent, ViewTimesheetReportComponent, UpdateTimesheetComponent, ApplyLeaveComponent],
   imports: [
     CommonModule,
     EmployeeRoutingModule ,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   
   exports: [ViewEmpLeavereportComponent, ViewEmpsalaryreportComponent, ViewTimesheetReportComponent, UpdateTimesheetComponent, ApplyLeaveComponent]

@@ -1,5 +1,5 @@
 export class Project {
-    projId:number;
+    projectCode:number;
     projName:string;
     projDescription:string;
     dueDay:string;

@@ -1,9 +1,6 @@
 import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
-import { AdminLoginComponent } from 'src/app/auth/admin-login/admin-login.component';
 import { AdminService } from '../admin.service';
-import { Employee } from '../domain/employee';
 import {Timesheet} from '../../employee/model/timesheet'
-import { findReadVarNames } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-add-timesheet',
@@ -30,6 +27,9 @@ export class AddTimesheetComponent implements OnInit{
     })
   }
   
+  //insert a new employee data to database
+  //call admin server method addTimesheet
+  //check the back value
   addTimesheet() {
     this.service.addTimesheet(this.timesheet).subscribe(back=>
       {

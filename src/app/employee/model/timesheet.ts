@@ -3,7 +3,8 @@ export class Timesheet {
     projectCode:number;
     task:string;
     taskDescription:string;
-    // employeeName:string;
+    employeeName:string;
+    projName:string;
 
     endDate:string;
     // dueDay:string
