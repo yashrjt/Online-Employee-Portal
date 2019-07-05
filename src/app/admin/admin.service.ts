@@ -6,6 +6,7 @@ import { Salary } from './domain/salary';
 import { TotalInfo } from './domain/total-info';
 import { Project } from './domain/project';
 import { Timesheet } from '../employee/model/timesheet';
+import { Vacation } from './domain/vacation';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,12 @@ export class AdminService implements OnInit {
 
   //find all employee by admin authorization
   public findAllEmployees(){
+    console.log("in findallemployee()")
     return this.http.get<Employee[]>(this.url1 + "/emp", {headers:this.headers, responseType:"json"})
+  }
+
+  public findPendingLeave(){
+    return this.http.get<Vacation[]>(this.url1 + "/pendingVacation", {headers:this.headers, responseType:"json"})
   }
 
 
@@ -54,19 +60,26 @@ export class AdminService implements OnInit {
     return this.http.post(this.API + "/salary", salary, {headers:this.headers, responseType:"text"});
   }
  
-
+  public permitLeave(vacations:any){
+    console.log(vacations)
+    return this.http.post(this.API + "/vacation", vacations, {headers:this.headers, responseType:"text"});
+  }
    
+  public findAllTimesheets(){
+    console.log("adminservice: in findalltimesheet()")
+    return this.http.get(this.API + "/timesheets" ,{headers:this.headers, responseType:"json"})
+  }
+
+  public findAllSalaries(){
+
+    return this.http.get(this.API + "/salaries" ,{headers:this.headers, responseType:"json"})
+  }
+
+  public findAllLeaves(){
+    console.log("adminservice: findallleaves")
+    return this.http.get(this.API + "/vacations" ,{headers:this.headers, responseType:"json"})
+  }
 
 
-
-   public findEmployeeById(id: number): Observable<any>{
-     console.log("in get")
-     return this.http.get(this.API + "findEmployee/" + id);
-   }
-
-   
-
-   public findAllSalary(): Observable<any[]>{
-     return this.http.get<Salary[]>(this.API + "salarys");
-   }
+  
 }

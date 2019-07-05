@@ -9,4 +9,5 @@ export class Timesheet {
     endDate:string;
     // dueDay:string
     action:string;
+    id:number;
 }

@@ -24,6 +24,7 @@ export class UpdateTimesheetComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.service.getTimesheet().subscribe(resp=>{
+      console.log(resp)
       if(resp == null){
         this.errorinfo = "login expiration";
       }else{
@@ -48,6 +49,7 @@ export class UpdateTimesheetComponent implements OnInit, AfterViewInit {
 
   //update timesheet, if return is null ,update fail
   updateTimesheet(idx:number){
+    console.log(this.timesheets[idx]);
     this.service.updateTimeSheet(this.timesheets[idx]).subscribe(resp=>{
       if(resp == null){
         this.errorinfo = "login expiration";

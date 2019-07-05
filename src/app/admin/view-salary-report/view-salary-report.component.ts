@@ -8,17 +8,25 @@ import { Salary } from '../domain/salary';
   styleUrls: ['./view-salary-report.component.css']
 })
 export class ViewSalaryReportComponent implements OnInit {
-  salarys:Salary[];
+  salaries:any
+  errorinfo:string;
 
-  constructor(private adminService: AdminService) {
+  constructor(private service: AdminService) {
 
    }
 
   ngOnInit() {
-    this.adminService.findAllSalary().subscribe( data =>{
-      this.salarys = data;
-      console.log(this.salarys);
-    })
+    this.service.findAllSalaries().subscribe(resp=>{
+      console.log(resp);
+      if(resp == null){
+        this.errorinfo = "login expiration";
+      }else if(resp[0].empId == null){
+        this.errorinfo = "fail to call db"
+      }else{
+        this.salaries = resp;
+        console.log(this.salaries)
+      }
+    });
   }
 
 }

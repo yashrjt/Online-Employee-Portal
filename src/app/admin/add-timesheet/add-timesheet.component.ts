@@ -12,6 +12,8 @@ export class AddTimesheetComponent implements OnInit{
   employees:any;
   projects:any;
   errorinfo:string = "";
+  empIdx:number;
+  projIdx:number;
   
   constructor(private service:AdminService) { }
 
@@ -31,6 +33,12 @@ export class AddTimesheetComponent implements OnInit{
   //call admin server method addTimesheet
   //check the back value
   addTimesheet() {
+    console.log("empidx " + this.empIdx);
+    console.log("projindex " + this.projIdx)
+    this.timesheet.employeeCode = this.employees[this.empIdx].id;
+    this.timesheet.employeeName = this.employees[this.empIdx].firstName + " " + this.employees[this.empIdx].lastName;
+    this.timesheet.projectCode = this.projects[this.projIdx].projId;
+    this.timesheet.projName = this.projects[this.projIdx].projName;
     this.service.addTimesheet(this.timesheet).subscribe(back=>
       {
         if(back=="error" || back=="false"){

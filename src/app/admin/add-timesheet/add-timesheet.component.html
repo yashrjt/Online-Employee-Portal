@@ -70,10 +70,10 @@
           <div class="form-group">
               <div class="col-sm-6">
 
-              <label for="exampleFormControlInput11">Select Employee Code</label><span class="star">*</span>
+              <label for="exampleFormControlInput11">Select Employee Name</label><span class="star">*</span>
               <br>
-              <select style = "width:150px" class="btn btn-secondary dropdown-toggle"  name = "employee" [(ngModel)]="timesheet.employeeCode" >
-                <option *ngFor="let item of employees" [value]='item.id'>{{item.firstName}}<span>&nbsp;</span>{{item.lastName}}</option>  
+              <select style = "width:150px" class="btn btn-secondary dropdown-toggle"  name = "employee" [(ngModel)]="empIdx" >
+                <option *ngFor="let item of employees; let key = index" [value]='key'>{{item.firstName}}<span>&nbsp;</span>{{item.lastName}}</option>  
 
               </select>
 
@@ -83,10 +83,10 @@
           
             <div class="form-group">
                 <div class="col-sm-6">
-              <label for="exampleFormControlInput11">Select Project Code</label><span class="star">*</span>
+              <label for="exampleFormControlInput11">Select Project </label><span class="star">*</span>
               <br>
-              <select style = "width:150px" class="btn btn-secondary dropdown-toggle"  name = "employee" [(ngModel)]="timesheet.projectCode" >
-                <option *ngFor="let item of projects" [value]='item.projId'>{{item.projName}}</option>  
+              <select style = "width:150px" class="btn btn-secondary dropdown-toggle"  name = "employee" [(ngModel)]="projIdx" >
+                <option *ngFor="let item of projects; let key = index" [value]='key'>{{item.projName}}</option>  
 
               </select>
               </div>

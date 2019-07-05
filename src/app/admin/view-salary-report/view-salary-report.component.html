@@ -6,26 +6,25 @@
 
 
 <table style="width:65%;height:90%;" align="center">
-
+<span style="color:red">{{errorinfo}}</span>
 <tr>
 <th colspan="5" style="background-color:#5E1D55;color:white;"><h3>Payment Report</h3></th>
 </tr>
 
 <tr style="background-color:#32A9EE;color:white;">
 <th>Employee Code</th>
+<th>Employee Name</th>
 <th>PayDate</th>
 <th>Amount</th>
-<th>Action</th>
 
 
 
 </tr>
 
-<tr *ngFor="let salary of salarys">
-<td><b>{{salary.employee.id}}</b></td>
-<td>{{salary.payDate}}</td>
-<td>{{salary.payAmount}}</td>
-<td>
+<tr *ngFor="let item of salaries">
+<td><b>{{item.empId}}</b></td>
+<td>{{item.empName}}</td>
+<td>{{item.payDate}}</td>
+<td>{{item.payAmount}}</td>
   
-</td>
 </tr>

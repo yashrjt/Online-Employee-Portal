@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { AdminService} from '../admin.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Salary } from '../domain/salary';
@@ -14,6 +14,7 @@ export class AddSalaryComponent implements OnInit {
   employees:any
   errorinfo:string
   days:number[];
+  empIdx:number 
 
 
   constructor(private adminService : AdminService) {
@@ -32,9 +33,15 @@ export class AddSalaryComponent implements OnInit {
    
   }
 
+  
+
+
+
   addSalary(){
-    
-    console.log("salaryid " + this.salary.empId)
+    this.salary.empName = this.employees[this.empIdx].firstName + " " + this.employees[this.empIdx].lastName;
+    this.salary.empId = this.employees[this.empIdx].id;
+    console.log(this.salary)
+
     this.adminService.addSalary(this.salary).subscribe();
   }
 
