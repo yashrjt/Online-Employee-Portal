@@ -8,7 +8,7 @@
 <table style="width:65%;height:90%;" align="center">
 <span style = "color:red">{{errorinfo}}</span>
 <tr>
-<th colspan="8" style="background-color:#5E1D55;color:white;"><h3>Update Time Sheet</h3></th>
+<th colspan="7" style="background-color:#5E1D55;color:white;"><h3>Update Time Sheet</h3></th>
 </tr>
 
 <tr style="background-color:#32A9EE;color:white;">
@@ -19,21 +19,10 @@
 <th>Ending Date</th>
 <th>Action</th>
 <th></th>
-<th></th>
 
 
 </tr>
 
-<!-- <tr>
-<td>1</td>
-<td>India</td>
-<td><input name="projectname" [(ngModel)]="timesheet.projectName" type='text' >{{timesheet.projectName}}</td>
-<td><input name="task" [(ngModel)]="timesheet.task" type='text' >{{timesheet.task}}</td>
-<td><input name="enddate" [(ngModel)]="timesheet.endDate" type='text'>{{timesheet.endDate}}</td>
-<td><input name="action" [(ngModel)]="timesheet.action" type='text' >{{timesheet.action}}</td>
-<td><button (click)="updateTimesheet()">Update</button></td>
-<td><button (click)="deleteTimesheet()">delete</button></td>
-</tr> -->
 
 <tr name="timesheettable" *ngFor = "let item of timesheets; let key=index">
     <td><b>{{item.employeeCode}}</b></td>
@@ -46,6 +35,5 @@
     <td><input name="enddate" [(ngModel)]="item.endDate" type='date'></td>
     <td><input name="action" [(ngModel)]="item.action" type='text' ></td>
     <td><button (click)="updateTimesheet(key)">Update</button></td>
-    <td><button (click)="deleteTimesheet(key)">delete</button></td>
 </tr>
 

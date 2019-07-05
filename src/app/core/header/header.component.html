@@ -91,7 +91,10 @@
 
 
         <li class="nav-item">
+          <div *ngIf="empStatus; then thenBlock"></div>
+          <ng-template #thenBlock>
             <a class="nav-link" routerLink="/home"   (click)="logout()">Log Out</a>
+            </ng-template>
           </li>
 
 
