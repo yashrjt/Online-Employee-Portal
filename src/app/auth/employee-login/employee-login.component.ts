@@ -44,7 +44,8 @@ export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
         this.token = resp
         if(this.token == ""){
           console.log("return is empty string")
-        }else{
+        }
+        else{
           
           //save token to localstorage for future authenticating
           this.jwt.token = this.token;
@@ -55,7 +56,9 @@ export class EmployeeLoginComponent implements OnInit, AfterViewChecked{
           localStorage.setItem("token", JSON.stringify(this.jwt));
 
            //need to do jump to employee home page,not exist
-          this.router.navigate(["emp"]);
+          // this.router.navigate(["home"]);
+          //do not user router.navigate, since need update header's status
+          window.location.href = "/home";
         }
 
       }

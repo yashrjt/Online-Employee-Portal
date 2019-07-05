@@ -9,12 +9,98 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="" routerLinkActive="active">About Us</a>
+          <a class="nav-link" routerLink="/info" routerLinkActive="active">About Us</a>
         </li>
-        <li class="nav-item dropdown">
+
+
+
+
+        <li class="nav-item">
+          <div *ngIf="empStatus; then thenTemplate; else elseTemplate"></div>
+
+          <ng-template #thenTemplate>
+              
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Employee Request
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/viewtimesheetreport" routerLinkActive="active">TimeSheet report</a>
+                    <a class="dropdown-item" routerLink="/viewempleavereport" routerLinkActive="active">Leave Report</a>
+                    <a class="dropdown-item" routerLink="/viewempsalaryreport" routerLinkActive="active">Salary Report</a>
+                    <a class="dropdown-item" routerLink="/applyleave" routerLinkActive="active">Apply Leave</a>
+                    <a class="dropdown-item" routerLink="/updatetimesheet" routerLinkActive="active">Update Timesheet</a>
+                  </div>
+                </li>
+
+          </ng-template>
+
+
+          <ng-template #elseTemplate>
+              <a class="nav-link" routerLink="/employeelogin"  routerLinkActive="active">Employee login</a>
+            
+             
+          </ng-template>
+        </li>
+
+
+        <li class="nav-item">
+            <div *ngIf="adminStatus; then thenBlock; else elseBlock"></div>
+
+
+            <ng-template #thenBlock>
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Add
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" routerLink="/addemployee" routerLinkActive="active">Add Employee</a>
+                      <a class="dropdown-item" routerLink="/addleave" routerLinkActive="active">Approval Leave</a>
+                      <a class="dropdown-item" routerLink="/addsalary" routerLinkActive="active">Add Salary</a>
+                      <a class="dropdown-item" routerLink="/addtimesheet" routerLinkActive="active">Add Timesheet</a>
+                    </div>
+                  </li>
+                
+          
+          
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Reports
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" routerLink="/adminviewtimesheetreport" routerLinkActive="active">Timesheet Report</a>
+                      <a class="dropdown-item" routerLink="/viewempreport" routerLinkActive="active">Employee Report</a>
+                      <a class="dropdown-item" routerLink="/viewleavereport" routerLinkActive="active">Leave Report</a>
+                      <a class="dropdown-item" routerLink="/viewsalaryreport" routerLinkActive="active">Salary Report</a>
+                    </div>
+                  </li>
+                  </ul>
+            </ng-template>
+
+            <ng-template #elseBlock>
+               
+                <a class="nav-link" routerLink="/adminlogin" routerLinkActive="active">Admin login</a>
+            </ng-template>
+        
+
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/home"   (click)="logout()">Log Out</a>
+          </li>
+
+
+
+
+        
+
+
+        <!-- <li class="nav-item dropdown"></li>
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Login
           </a>
@@ -23,17 +109,22 @@
             <a class="dropdown-item" routerLink="/employeelogin"  routerLinkActive="active">Employee login</a>
           </div>
         </li>
+
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Add
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/addemployee" routerLinkActive="active">Add Employee</a>
-            <a class="dropdown-item" routerLink="/addleave" routerLinkActive="active">Add Leave</a>
+            <a class="dropdown-item" routerLink="/addleave" routerLinkActive="active">Approval Leave</a>
             <a class="dropdown-item" routerLink="/addsalary" routerLinkActive="active">Add Salary</a>
             <a class="dropdown-item" routerLink="/addtimesheet" routerLinkActive="active">Add Timesheet</a>
           </div>
         </li>
+
+
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Reports
@@ -44,8 +135,11 @@
             <a class="dropdown-item" routerLink="/viewleavereport" routerLinkActive="active">Leave Report</a>
             <a class="dropdown-item" routerLink="/viewsalaryreport" routerLinkActive="active">Salary Report</a>
           </div>
-        </li>
-        <li class="nav-item dropdown">
+        </li> -->
+
+
+
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Employee Request
           </a>
@@ -56,110 +150,11 @@
             <a class="dropdown-item" routerLink="/applyleave" routerLinkActive="active">Apply Leave</a>
             <a class="dropdown-item" routerLink="/updatetimesheet" routerLinkActive="active">Update Timesheet</a>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav>
 </div>
-  <!-- ==================================================== -->
-  <!-- <ul id="navigation">
-    <li class="current">
-      <a routerLink="/" routerLinkActive="active">Home</a>
-    </li>
-    
-    <li>
-      <a routerLink="" routerLinkActive="active">About Us</a>
-     </li>
-     
-     <li *ngIf="!adminLoggedIn">
-      <a routerLink="/adminlogin" routerLinkActive="active">Admin login</a>
-    </li>
-    
-    <li *ngIf="adminLoggedIn">
-      <a routerLink="" routerLinkActive="active">REPORTS</a>
-
-      <ul>
-          <li>
-            <a routerLink="/viewempreport" routerLinkActive="active">Employee report</a>          
-        </li>
-        <li>
-            <a routerLink="/viewempleavereport" routerLinkActive="active">Leave Report</a>
-        </li>
-        <li>
-            <a routerLink="/viewempsalaryreport" routerLinkActive="active">Salary Report</a>
-        </li>
-        <li>
-            <a routerLink="/adminviewtimesheetreport" routerLinkActive="active">Timesheet Report</a>
-        </li>
-
-      </ul>
-    </li>
-    <li *ngIf="adminLoggedIn">
-      <a routerLink="/" routerLinkActive="active">ADD NEW</a>
-
-      <ul>
-          <li>
-            <a routerLink="/addemployee" routerLinkActive="active">Add Employee </a>          
-        </li>
-        <li>
-
-          <a href="/auth/login.html">Employee </a>
-
-            <a routerLink="/applyleave" routerLinkActive="active">Apply Leave</a>
-            
-            <a routerLink="/" routerLinkActive="active">Add Leave</a>
-
-        </li>
-        <li>
-            <a routerLink="/addsalary" routerLinkActive="active">Add Salary </a>
-        </li>
-        <li>
-            <a routerLink="/addtimesheet" routerLinkActive="active">Add Timesheet </a>
-        </li>
-
-      </ul>
-    </li> -->
-   
-
-    <!-- Employee -->
-    <!-- <li *ngIf="!empLoggedIn">
-      <a routerLink="/employeelogin"  routerLinkActive="active">Employee login</a>
-    </li>
-    <li *ngIf="empLoggedIn">
-      <a routerLink="" routerLinkActive="active">MY REPORTS</a>
-
-      <ul>       
-        <li>
-            <a routerLink="/viewempleavereport" routerLinkActive="active">Leave Report</a>
-        </li>
-        <li>
-            <a routerLink="/viewempsalaryreport" routerLinkActive="active">Salary Report</a>
-        </li>
-        <li>
-
-            <a routerLink="/viewtimesheetreport" routerLinkActive="active">Timesheet Report</a>
-        </li>
-
-      </ul>
-    </li>
-
-    <li *ngIf="empLoggedIn">
-      <a routerLink="" routerLinkActive="active">MY ACCOUNTS</a>
-      <ul>       
-        <li>
-            <a routerLink="/applyleave" routerLinkActive="active">Apply Leave</a>
-        </li>
-        <li>
-            <a routerLink="/updatetimesheet" routerLinkActive="active">Update Timesheet</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a routerLink="" routerLinkActive="active">Contact</a>
-
-    </li>
-   
-  </ul>
-</div> -->
+  
 
 

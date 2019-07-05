@@ -14,12 +14,16 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { InterceptorService } from './auth/interceptor.service';
+import { HomeComponent } from './home/home.component';
+import { InfomationComponent } from './infomation/infomation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLoginComponent,
-    EmployeeLoginComponent
+    EmployeeLoginComponent,
+    HomeComponent,
+    InfomationComponent
   ],
   imports: [
     BrowserModule,  

@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
-import { empty } from 'rxjs';
 import { EmployeeLoginComponent } from './auth/employee-login/employee-login.component';
-import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { InfomationComponent } from './infomation/infomation.component';
 
 
 const routes: Routes = [
+  {
+    path:"home", component:HomeComponent
+  },
+  {
+    path:"info", component:InfomationComponent
+  },
   
   {
     path:"adminlogin", component:AdminLoginComponent
@@ -15,8 +21,9 @@ const routes: Routes = [
   {
     path:"employeelogin", component:EmployeeLoginComponent
   },
+  
   {
-    path:"emp", redirectTo:"viewtimesheetreport", pathMatch:'full'
+    path:"**" , component:HomeComponent
   }
 
 ];

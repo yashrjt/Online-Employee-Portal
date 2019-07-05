@@ -37,7 +37,8 @@ export class AdminLoginComponent implements OnInit {
           localStorage.setItem("token", JSON.stringify(this.jwt));
 
            //need to do jump to employee home page,not exist
-          this.router.navigate(["emp"]);
+          // this.router.navigate(["emp"]);
+          window.location.href="/home"
         }
 
       }
